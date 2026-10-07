@@ -59,6 +59,20 @@ services:
     depends_on: [mongo]
     networks: [bdd-net]
 
+  # Caixas eletronicos. A UI chama este servico DIRETO na 8001 (como faz com
+  # o customer-auth na 8000), entao a porta fixa. Ele popula a propria
+  # colecao a partir de atm_data.json no boot -- nao ha carga manual.
+  atm-locator:
+    image: tonanuvem/fiap-bank-atm-locator-otel:lab
+    container_name: bdd-atm-locator
+    restart: always
+    ports: ["8001:8001"]
+    environment:
+      <<: *sem-otel
+      PORT: 8001
+    depends_on: [mongo]
+    networks: [bdd-net]
+    
   # ------------------------------------------------------- interface do banco
   # Nao e' usada pelos testes. Serve para o aluno VER o bug na tela depois de
   # o cenario Cucumber ter acusado a falha -- a prova visual do achado.
