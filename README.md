@@ -1,7 +1,7 @@
 # LAB : Agile Testing / BDD
 
-Laboratório de **BDD** com **Cucumber 7**, **Amazon Q Developer** e o
-**FIAP OTEL Bank**.
+Laboratório de **BDD** com **Cucumber**, **Amazon Q Developer** e o
+**FIAP Bank**.
 
 ```bash
 git clone https://github.com/tonanuvem/bddfiap && cd bddfiap
