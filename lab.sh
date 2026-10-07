@@ -9,8 +9,6 @@
 #   bash lab.sh --parar      para o banco
 #   bash lab.sh --status     mostra o que esta no ar
 #   bash lab.sh --testar     roda a suite completa
-#   bash lab.sh --fase1      roda so os cenarios da Fase 1 (@venda)
-#   bash lab.sh --fase2      roda so os cenarios da Fase 2 (@banco)
 #
 #   bash lab.sh --extrair <servico>   tira o codigo-fonte de dentro do conteiner
 #   bash lab.sh --aplicar <servico>   devolve o codigo corrigido e reinicia
@@ -38,8 +36,6 @@ case "${1:-}" in
     --parar)  ACAO="parar" ;;
     --status) ACAO="status" ;;
     --testar) ACAO="testar" ;;
-    --fase1)  ACAO="fase1" ;;
-    --fase2)  ACAO="fase2" ;;
     --extrair) ACAO="extrair"; SERVICO="${2:-}" ;;
     --aplicar) ACAO="aplicar"; SERVICO="${2:-}" ;;
     -h|--help) sed -n '3,20p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
@@ -127,17 +123,12 @@ mostrar_enderecos() {
       transferencias http://$ip:50052
       emprestimos    http://$ip:50053
 
-  Rodar os testes:
-      bash lab.sh --fase1     cenarios de pagamento (Fase 1)
-      bash lab.sh --fase2     cenarios do banco     (Fase 2)
-
   Regras de negocio do banco:
       docs/REGRAS-DE-NEGOCIO.md
 FIM
     if [ "$ip" != "localhost" ]; then
         printf '\n'
         aviso "Rodando em maquina remota: use -Dbanco.host=$ip nos testes"
-        echo "         (o lab.sh --fase1/--fase2 ja faz isso por voce)"
     fi
 }
 
@@ -205,7 +196,7 @@ aplicar_fonte() {
     printf '\n'
     ok "'$SERVICO' reiniciado com a sua correcao"
     echo ""
-    echo "  Agora rode os testes de novo:  bash lab.sh --fase2"
+    echo "  Agora rode os testes de novo:  bash lab.sh --testar"
     echo "  Para desfazer tudo:            bash lab.sh --parar && bash lab.sh --subir"
 }
 
@@ -241,14 +232,6 @@ case "$ACAO" in
     testar)
         verificar_maven
         rodar_testes ""
-        ;;
-    fase1)
-        verificar_maven
-        rodar_testes "@venda"
-        ;;
-    fase2)
-        verificar_maven
-        rodar_testes "@banco"
         ;;
     extrair)
         verificar_docker
