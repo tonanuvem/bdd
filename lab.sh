@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# FIAP - LAB 2 - Agile Testing / BDD
+# FIAP - Agile Testing / BDD
 #
 # Prepara o laboratorio inteiro com UM comando.
 #
