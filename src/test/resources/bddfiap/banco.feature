@@ -1,9 +1,9 @@
 # language: pt
 @banco
-Funcionalidade: Movimentacao de dinheiro no FIAP OTEL Bank
+Funcionalidade: Movimentacao de dinheiro
   O cliente movimenta dinheiro entre contas e solicita credito.
-  Valor para a organizacao: e' a operacao que o banco cobra e que, se estiver
-  errada, gera prejuizo direto.
+  Valor para a organizacao: operacao que o banco cobra e que, se estiver
+  errada, gera prejuizo.
 
   # ---------------------------------------------------------------------------
   # CENARIO MODELO -- ja escrito, serve de exemplo do vocabulario disponivel.
