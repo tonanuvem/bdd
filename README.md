@@ -9,9 +9,7 @@ bash lab.sh
 ```
 
 Um comando sobe o sistema sob teste, baixa as dependências do Maven e mostra
-os endereços. Não há `mvn archetype:generate` com perguntas interativas, não há
-código Java para copiar de dentro de um documento Word, e não há JDK para
-instalar.
+os endereços. 
 
 > **Roteiro completo da aula:** `FIAP - LAB 2-agile-testing-BDD-2026.docx`
 
