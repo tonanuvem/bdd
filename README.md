@@ -11,8 +11,6 @@ bash lab.sh
 Um comando sobe o sistema sob teste, baixa as dependências do Maven e mostra
 os endereços. 
 
-> **Roteiro completo da aula:** `FIAP - LAB 2-agile-testing-BDD-2026.docx`
-
 ---
 
 ## Do que o laboratório trata
