@@ -13,10 +13,10 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * VOCABULARIO DE NEGOCIO DO BANCO  (Fase 2 do laboratorio)
+ * VOCABULARIO DE NEGOCIO DO BANCO
  *
- * Estes passos JA ESTAO IMPLEMENTADOS. O seu trabalho na Fase 2 nao e'
- * escrever Java: e' decidir QUAIS CENARIOS devem existir.
+ * Estes passos JA ESTAO IMPLEMENTADOS. O seu trabalho 
+ * é decidir QUAIS CENARIOS devem existir.
  *
  * Passos disponiveis:
  *
