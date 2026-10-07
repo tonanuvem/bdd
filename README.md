@@ -121,10 +121,6 @@ docker-compose.yml              FIAP OTEL Bank (imagens publicadas, sem build)
 lab.sh                          setup e execução em um comando
 pom.xml                         Cucumber 7.22 + JUnit 5 + Jackson
 
-docs/REGRAS-DE-NEGOCIO.md       a folha de regras da Fase 2  <-- comece por aqui
-docs/PROMPTS-AMAZON-Q.md        os prompts das Fases 1, 3, 4 e 5
-docs/img/                       imagens usadas no roteiro (.docx)
-
 src/test/resources/bddfiap/
     venda.feature               Fase 1 — pagamento (cenário pronto)
     banco.feature               Fase 2 — o aluno escreve os cenários aqui
@@ -133,9 +129,6 @@ src/test/java/bddfiap/
     RunCucumberTest.java        runner JUnit 5 (não precisa mexer)
     Banco.java                  cliente REST do banco (infraestrutura)
     BancoSteps.java             vocabulário Gherkin do banco (já implementado)
-
-gabarito/                       para o instrutor
-correcao/                       criada na Fase 4 (fora do git)
 ```
 
 O aluno **não escreve Java na Fase 2**: `BancoSteps.java` já traz o vocabulário
