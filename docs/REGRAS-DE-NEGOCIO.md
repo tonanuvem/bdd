@@ -1,4 +1,4 @@
-# FIAP OTEL Bank — Regras de Negócio
+# Regras de Negócio
 
 > Este documento é a **saída da conversa** entre a área de negócio, o
 > desenvolvimento e o QA (o "Three Amigos"). É tudo o que você tem.
