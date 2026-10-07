@@ -20,7 +20,7 @@ Funcionalidade: Movimentacao de dinheiro no FIAP OTEL Bank
   # ---------------------------------------------------------------------------
   # A PARTIR DAQUI E' O SEU TRABALHO (Fase 2).
   #
-  # Leia docs/REGRAS-DE-NEGOCIO.md e escreva os cenarios que verificam cada
-  # regra. Nao olhe o codigo da aplicacao: um teste de aceitacao enxerga o
+  # Escreva os cenarios que verificam as regras de negócio
+  # Nao olhe o codigo da aplicacao: um teste de aceitacao enxerga o
   # sistema pela porta da frente, como o cliente.
   # ---------------------------------------------------------------------------
