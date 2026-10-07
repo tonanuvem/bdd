@@ -16,11 +16,3 @@ Funcionalidade: Movimentacao de dinheiro
     Entao a operacao deve ser "aprovada"
     E o saldo da conta "A" deve ser 700
     E o saldo da conta "B" deve ser 400
-
-  # ---------------------------------------------------------------------------
-  # A PARTIR DAQUI E' O SEU TRABALHO (Fase 2).
-  #
-  # Escreva os cenarios que verificam as regras de negócio
-  # Nao olhe o codigo da aplicacao: um teste de aceitacao enxerga o
-  # sistema pela porta da frente, como o cliente.
-  # ---------------------------------------------------------------------------
