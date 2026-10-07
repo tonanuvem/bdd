@@ -1,15 +1,11 @@
 # ============================================================================
-# FIAP - LAB 2 - Agile Testing / BDD
+# FIAP - Agile Testing / BDD
 #
-# Sobe o FIAP OTEL Bank a partir das IMAGENS JA PUBLICADAS no Docker Hub.
+# Sobe o FIAP Bank a partir das IMAGENS JA PUBLICADAS no Docker Hub.
 # Nao ha build e NAO HA CODIGO-FONTE da aplicacao neste repositorio: o aluno
 # testa uma caixa-preta pela API REST, que e' exatamente a postura de quem
 # escreve um teste de aceitacao.
 #
-# A instrumentacao OpenTelemetry das imagens fica DESLIGADA
-# (OTEL_SDK_DISABLED): este laboratorio e' de BDD, nao de observabilidade, e
-# sem isso cada servico tentaria exportar telemetria a um collector
-# inexistente, enchendo o log de erro de conexao.
 #
 # Portas publicadas:
 #   3000  UI do banco (o aluno VE o bug acontecendo na tela)
