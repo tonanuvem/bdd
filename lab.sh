@@ -115,14 +115,11 @@ mostrar_enderecos() {
 
     titulo "LABORATORIO PRONTO"
     cat <<FIM
+  
   Acessar Frontend do APP Exemplo FIAP Bank :
       http://$ip:3000
 
 FIM
-    if [ "$ip" != "localhost" ]; then
-        printf '\n'
-        aviso "Rodando em maquina remota: use -Dbanco.host=$ip nos testes"
-    fi
 }
 
 # Caminho do arquivo principal de cada servico DENTRO da imagem publicada.
