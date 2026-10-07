@@ -9,15 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <!--
-      LAB 2 - Agile Testing / BDD - FIAP
-
-      Cucumber 7 + JUnit 5. A versao anterior deste laboratorio usava
-      Cucumber 4.2.6 (2019), com os pacotes `cucumber.api.*` e runner JUnit 4.
-      A migracao nao e' cosmetica: o Amazon Q gera codigo Cucumber 7
-      (`io.cucumber.java.pt`) por padrao, e num projeto 4.2.6 toda sugestao
-      da IA falha no import.
-    -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
