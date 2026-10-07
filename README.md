@@ -16,14 +16,12 @@ os endereços.
 ## Do que o laboratório trata
 
 A IA inverteu a economia do BDD. Escrever *step definitions* era a parte cara;
-hoje o Amazon Q faz isso em segundos. O que ficou caro — e que a IA sozinha faz
-mal — é decidir **quais cenários devem existir**.
+hoje o Amazon Q faz isso em segundos. O que a IA NÃO faz sozinha: decidir **quais cenários devem existir**.
 
-Por isso o aluno não passa a aula digitando Java. Ele passa a aula decidindo o
-que especificar, e descobrindo que uma regra que ninguém escreveu vira defeito
+Por isso o aluno decide e especifica, descobrindo que uma regra que ninguém escreveu vira defeito
 em produção.
 
-O fio condutor é um arquivo `.feature` que muda de papel quatro vezes:
+Arquivo `.feature` muda durante as fases:
 
 | Momento | O que o cenário é |
 |---|---|
