@@ -1,4 +1,4 @@
-# bddfiap — LAB 2: Agile Testing / BDD
+# LAB : Agile Testing / BDD
 
 Laboratório de **BDD** com **Cucumber 7**, **Amazon Q Developer** e o
 **FIAP OTEL Bank**.
