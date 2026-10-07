@@ -248,13 +248,3 @@ Duas ressalvas conhecidas:
 - a porta **8000** (`customer-auth`, o login) **não é ajustável**: a interface do
   banco tem esse endereço fixo no código. Se ela estiver ocupada, libere-a — ou
   siga sem a UI, porque as Fases 1 a 4 só dependem das APIs (50051–50053).
-
----
-
-## Migração a partir da versão anterior
-
-A versão anterior deste laboratório usava **Cucumber 4.2.6** (2019), com os
-pacotes `cucumber.api.*` e runner JUnit 4. A migração para **Cucumber 7**
-(`io.cucumber.java.pt`, `@Suite` do JUnit 5) **não é cosmética**: o Amazon Q
-gera código Cucumber 7 por padrão, e num projeto 4.2.6 toda sugestão da IA
-falha no import — o que inviabilizaria as Fases 1 e 4.
