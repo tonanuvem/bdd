@@ -110,21 +110,14 @@ aquecer_maven() {
 
 mostrar_enderecos() {
     local ip
-    ip="$(curl -s --max-time 3 http://169.254.169.254/latest/meta-data/public-ipv4 2>/dev/null)"
+    ip="$(curl -s --max-time 3 http://checkip.amazonaws.com 2>/dev/null)"
     [ -z "$ip" ] && ip="localhost"
 
     titulo "LABORATORIO PRONTO"
     cat <<FIM
-  Interface do banco (para VER o bug acontecendo na tela):
+  Acessar Frontend do APP Exemplo FIAP Bank :
       http://$ip:3000
 
-  API usada pelos testes Cucumber:
-      contas         http://$ip:50051
-      transferencias http://$ip:50052
-      emprestimos    http://$ip:50053
-
-  Regras de negocio do banco:
-      docs/REGRAS-DE-NEGOCIO.md
 FIM
     if [ "$ip" != "localhost" ]; then
         printf '\n'
