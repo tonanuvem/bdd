@@ -47,7 +47,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Leitura das respostas JSON da API do banco (Fase 2) -->
+        <!-- Leitura das respostas JSON da API da app de exemplo (Banco) -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
