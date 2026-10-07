@@ -1,0 +1,109 @@
+# ============================================================================
+# FIAP - LAB 2 - Agile Testing / BDD
+#
+# Sobe o FIAP OTEL Bank a partir das IMAGENS JA PUBLICADAS no Docker Hub.
+# Nao ha build e NAO HA CODIGO-FONTE da aplicacao neste repositorio: o aluno
+# testa uma caixa-preta pela API REST, que e' exatamente a postura de quem
+# escreve um teste de aceitacao.
+#
+# A instrumentacao OpenTelemetry das imagens fica DESLIGADA
+# (OTEL_SDK_DISABLED): este laboratorio e' de BDD, nao de observabilidade, e
+# sem isso cada servico tentaria exportar telemetria a um collector
+# inexistente, enchendo o log de erro de conexao.
+#
+# Portas publicadas:
+#   3000  UI do banco (o aluno VE o bug acontecendo na tela)
+#   5000  dashboard / BFF  (chamado pelo navegador; ajuste com PORTA_WEB)
+#   8000  customer-auth    (login da UI)
+#   50051 accounts      -- API REST usada pelos testes Cucumber
+#   50052 transactions  -- API REST usada pelos testes Cucumber
+#   50053 loan          -- API REST usada pelos testes Cucumber
+# ============================================================================
+
+services:
+
+  mongo:
+    image: mongo:7
+    container_name: bdd-mongo
+    restart: always
+    networks: [bdd-net]
+    # Sem usuario/senha de proposito: o DB_URL dos servicos nao tem credencial.
+
+  # ----------------------------------------------- servicos de negocio (API)
+  accounts:
+    image: tonanuvem/fiap-bank-accounts-otel:lab
+    container_name: bdd-accounts
+    restart: always
+    ports: ["50051:50051"]
+    environment: &sem-otel
+      DB_URL: "mongodb://mongo:27017/bank"
+      SERVICE_PROTOCOL: http
+      OTEL_SDK_DISABLED: "true"
+      OTEL_TRACES_EXPORTER: none
+      OTEL_METRICS_EXPORTER: none
+      OTEL_LOGS_EXPORTER: none
+    depends_on: [mongo]
+    networks: [bdd-net]
+
+  transactions:
+    image: tonanuvem/fiap-bank-transactions-otel:lab
+    container_name: bdd-transactions
+    restart: always
+    ports: ["50052:50052"]
+    environment: *sem-otel
+    depends_on: [mongo]
+    networks: [bdd-net]
+
+  loan:
+    image: tonanuvem/fiap-bank-loan-otel:lab
+    container_name: bdd-loan
+    restart: always
+    ports: ["50053:50053"]
+    environment: *sem-otel
+    depends_on: [mongo]
+    networks: [bdd-net]
+
+  # ------------------------------------------------------- interface do banco
+  # Nao e' usada pelos testes. Serve para o aluno VER o bug na tela depois de
+  # o cenario Cucumber ter acusado a falha -- a prova visual do achado.
+  customer-auth:
+    image: tonanuvem/fiap-bank-customer-auth-otel:lab
+    container_name: bdd-customer-auth
+    restart: always
+    ports: ["8000:8000"]
+    environment:
+      <<: *sem-otel
+      PORT: 8000
+    depends_on: [mongo]
+    networks: [bdd-net]
+
+  dashboard:
+    image: tonanuvem/fiap-bank-dashboard-otel:lab
+    container_name: bdd-dashboard
+    restart: always
+    ports: ["${PORTA_WEB:-5000}:5000"]
+    environment:
+      <<: *sem-otel
+      ACCOUNT_HOST: accounts
+      TRANSACTION_HOST: transactions
+      LOAN_HOST: loan
+    depends_on: [accounts, transactions, loan]
+    networks: [bdd-net]
+
+  ui:
+    image: tonanuvem/fiap-bank-ui-otel:lab
+    container_name: bdd-ui
+    restart: always
+    ports: ["3000:3000"]
+    environment:
+      # Quem chama estas portas e' o NAVEGADOR do aluno, nao o container:
+      # a UI precisa saber em que porta o dashboard foi publicado no host.
+      PORTA_DASHBOARD: "${PORTA_WEB:-5000}"
+      SPLUNK_RUM_TOKEN: ""
+      FARO_COLLECTOR_URL: ""
+    depends_on: [dashboard, customer-auth]
+    networks: [bdd-net]
+
+networks:
+  bdd-net:
+    driver: bridge
