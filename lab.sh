@@ -109,6 +109,8 @@ aquecer_maven() {
 }
 
 mostrar_enderecos() {
+    bash usuario.sh
+    
     local ip
     ip="$(curl -s --max-time 3 http://checkip.amazonaws.com 2>/dev/null)"
     [ -z "$ip" ] && ip="localhost"
