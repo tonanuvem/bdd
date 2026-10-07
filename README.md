@@ -47,7 +47,7 @@ Arquivo `.feature` muda durante as fases:
 
 | Fase | O que o grupo faz |
 |---|---|
-| **5** | Aplica a técnica ao **próprio projeto**: produz o slide 5 do *TRABALHO 1* (Cenários de Testes, 2 pontos) a partir do Domain Story do grupo, com apoio do Amazon Q. |
+| **5** | Aplica a técnica ao **próprio projeto**: produz o *TRABALHO 1* (incluindo Cenários de Testes) a partir do Domain Story do grupo, com apoio do Amazon Q. |
 
 ---
 
