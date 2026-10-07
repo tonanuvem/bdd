@@ -117,6 +117,7 @@ mostrar_enderecos() {
     cat <<FIM
   
   Acessar Frontend do APP Exemplo FIAP Bank :
+  
       http://$ip:3000
 
 FIM
