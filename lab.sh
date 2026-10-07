@@ -120,6 +120,11 @@ mostrar_enderecos() {
   
       http://$ip:3000
 
+  LOGIN DE TESTE: 
+
+      Email : teste@teste.com
+      Senha : Teste@123
+
 FIM
 }
 
